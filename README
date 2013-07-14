@@ -1,0 +1,19 @@
+"Hacme Central"
+by brad.antoniewicz@foundstone.com
+-------------------------------------
+
+This is a really basic "Hacme" I created for 
+high school students. In the first couple of
+slides I introduce myself and mention that I
+have a dog named "Mr Fluffy". About 3 or 4 
+slides later, I ask them to hack my account.
+
+It's up to the students to guess my username 
+and ultimately figure out they need to use the
+forgot password page and provide my dog's name 
+to get my password. 
+
+This requires PHP (you can run it on backtrack), 
+and you'll need to modify the source if you want
+to use a new username and password or change
+the success message.
