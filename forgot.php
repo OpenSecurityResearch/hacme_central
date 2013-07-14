@@ -1,12 +1,15 @@
 <?php 
     $gotAnswer = False;
+    $gotUser = False;
     $isPost = False;
 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $isPost = True;
-	if ($_POST['question'] == "3")
+        if (strtoupper($_POST['user']) == "BRAD") $gotUser = True;
+ 
+        if ($_POST['question'] == "3")
         	if (str_replace(' ','',strtoupper($_POST['answer'])) == 'MRMUFFY') $gotAnswer = True;
-    }
+    }   
 ?>
             
 
@@ -49,12 +52,19 @@
         <div class="large-6 large-centered columns">
             <h3>Forgot Password</h3>
             <p><?php 
-                if ($isPost == True && $gotAnswer == False) 
+                if ($isPost == True && $gotUser == False)
+                    echo "<label class=\"error\">Invalid username</label>";
+                else if ($isPost == True && $gotUser == True && $gotAnswer == False) 
                     echo "<label class=\"error\">Sorry, what you provided didn't match what we have on file</label>";
                 else
                     echo "<label>Please specify a question and provide an answer</label>";
             ?></p>
             <form action="forgot.php" method="POST">
+                <div class="row">
+                    <div class="large-8 columns">
+                        <input type="text" name="user" placeholder="Username">
+                    </div>
+                </div>
                 <div class="row">
                     <div class="large-8 columns">
                         <label for="questionDropdown">Select the question</label>
